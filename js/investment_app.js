@@ -5,9 +5,18 @@ let rate;
 let years;
 
 // COLLECT VALUES FROM THE USER
-investment = parseFloat(prompt('Enter investment amount as xxxx.xx'));
-rate = parseFloat(prompt('Enter interest rate as xx.x'));
-years = parseInt(prompt('Enter the number of years you want to invest for'));
+do {
+    investment = parseFloat(prompt('Enter investment amount as xxxx.xx'));
+} while (isNaN(investment) || investment <= 0);
+
+do {
+    rate = parseFloat(prompt('Enter interest rate as xx.x'));
+} while (isNaN(rate) || rate < 0 || rate > 6);
+
+do {
+    years = parseInt(prompt('Enter the number of years you want to invest for'));
+} while (isNaN(years) || years < 1 || years > 30);
+
 
 // CALCULATE FUTURE VALUE
 futureValue = investment;
